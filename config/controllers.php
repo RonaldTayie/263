@@ -112,9 +112,11 @@ class AuthController extends DBController{
 
 			if(!empty($data)){
 				$data['token'] = self::getToken($data['user']);
+				return json_encode($data);
+			}else{
+				// array_push($data, $token);
+				return null;
 			}
-			// array_push($data, $token);
-			return json_encode($data);
 		}
 	}
 

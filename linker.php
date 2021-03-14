@@ -33,19 +33,17 @@ if(isset($_POST) and !empty($_POST)){
 
 		if(empty($user)){
 			$_POST = null;
-
-			if(isset($_COOKIE)){
-				if(isset($_COOKIE['_token'])){
-			
-				}else{
-					if(isset(_POST)){}else{redirect();}
-				}
-			}
-
 			header("Location: index.php");
 		}
 		$week = new DateTime("+1 week");
 		setcookie('_token',$user['token'][0]['token'],$week->getTimestamp(),"/",null,null,false);
+
+		if(isset($_COOKIE)){
+			if(isset($_COOKIE['_token'])){
+			}else{
+				if(isset($_POST)){}else{redirect();}
+			}
+		}
 	}
 
 }
